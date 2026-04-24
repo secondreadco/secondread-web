@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Second Read holding page · v2 · 2026-04-23 -->
+<!-- Second Read holding page · v3 · 2026-04-24 · adds Forest Dark for dark mode -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Second Read</title>
@@ -36,9 +36,11 @@
     --ink: #0f0f0f;
     --paper: #faf8f4;
     --forest: #1e5137;
+    --forest-dark-mode: #3d8a65;
     --mid: #555555;
     --rule: #ddd8d0;
     --white: #ffffff;
+    --accent: var(--forest);
     --font-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
     --font-sans: 'Public Sans', -apple-system, 'Segoe UI', sans-serif;
   }
@@ -54,7 +56,7 @@
     flex-direction: column;
   }
 
-  .top-rule { height: 4px; background: var(--forest); width: 100%; }
+  .top-rule { height: 4px; background: var(--accent); width: 100%; }
 
   header {
     padding: 24px 32px;
@@ -68,7 +70,7 @@
     text-decoration: none;
     letter-spacing: -0.005em;
   }
-  .wordmark-dot { color: var(--forest); }
+  .wordmark-dot { color: var(--accent); }
 
   main {
     flex: 1;
@@ -98,15 +100,15 @@
     color: var(--ink);
     margin-bottom: 32px;
   }
-  h1 .accent { color: var(--forest); }
+  h1 .accent { color: var(--accent); }
 
   .pull-quote {
     font-family: var(--font-serif);
     font-style: italic;
     font-size: 22px;
     line-height: 1.4;
-    color: var(--forest);
-    border-left: 3px solid var(--forest);
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
     padding-left: 18px;
     margin-bottom: 40px;
   }
@@ -143,7 +145,7 @@
     text-decoration: none;
     transition: color 150ms ease-out;
   }
-  .footer-social a:hover { color: var(--forest); }
+  .footer-social a:hover { color: var(--accent); }
 
   @media (max-width: 640px) {
     header { padding: 20px 24px; }
@@ -155,6 +157,7 @@
   }
 
   @media (prefers-color-scheme: dark) {
+    :root { --accent: var(--forest-dark-mode); }
     html, body { background: var(--ink); color: var(--paper); }
     header, footer { border-color: rgba(221, 216, 208, 0.12); }
     .wordmark { color: var(--paper); }
