@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Second Read holding page · v3 · 2026-04-24 · adds Forest Dark for dark mode -->
+<!-- Second Read holding page · v4 · 2026-04-24 · adds Beehiiv subscribe form -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Second Read</title>
@@ -30,6 +30,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/public-sans@5.0.18/400.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/public-sans@5.0.18/500.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/public-sans@5.0.18/600.css">
+
+<!-- Beehiiv embed script — powers the subscribe form iframe -->
+<script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
 
 <style>
   :root {
@@ -118,6 +121,23 @@
     font-size: 18px;
     line-height: 1.6;
     color: var(--ink);
+    margin-bottom: 48px;
+  }
+
+  /* Form wrapper — provides the thin rule separator from the lead paragraph
+     above, and a responsive container that lets Beehiiv's iframe resize
+     cleanly on mobile while preserving its height for the success state */
+  .form-wrapper {
+    padding-top: 32px;
+    border-top: 0.5px solid var(--rule);
+  }
+  .form-wrapper .beehiiv-embed {
+    width: 100% !important;
+    max-width: 519px !important;
+    /* Height retained at 336px to accommodate the Beehiiv form's success
+       state after submission. Resist the temptation to shrink this. */
+    height: 336px !important;
+    display: block;
   }
 
   footer {
@@ -152,14 +172,15 @@
     main { padding: 32px 24px; }
     h1 { font-size: 40px; }
     .pull-quote { font-size: 19px; }
-    .lead { font-size: 17px; }
+    .lead { font-size: 17px; margin-bottom: 40px; }
+    .form-wrapper { padding-top: 28px; }
     footer { padding: 24px; }
   }
 
   @media (prefers-color-scheme: dark) {
     :root { --accent: var(--forest-dark-mode); }
     html, body { background: var(--ink); color: var(--paper); }
-    header, footer { border-color: rgba(221, 216, 208, 0.12); }
+    header, footer, .form-wrapper { border-color: rgba(221, 216, 208, 0.12); }
     .wordmark { color: var(--paper); }
     h1 { color: var(--paper); }
     .lead { color: var(--paper); }
@@ -189,6 +210,10 @@
     <p class="lead">
       Second Read brings every part of the serious writer's publishing pipeline into one place. A weekly newsletter, considered and edited, arrives every Thursday. A curated global directory lists competitions, grants, residencies, and open submissions as they appear. A submission tracker keeps pace with your work. A writing community, for the conversations writing needs. Coming soon.
     </p>
+
+    <div class="form-wrapper">
+      <iframe src="https://subscribe-forms.beehiiv.com/24250603-4578-47a9-a8bd-d6233812911f" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" title="Subscribe to Second Read" style="margin: 0; border-radius: 0; background-color: transparent; box-shadow: 0 0 #0000;"></iframe>
+    </div>
 
   </div>
 </main>
