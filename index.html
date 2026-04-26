@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Second Read holding page · v4 · 2026-04-24 · adds Beehiiv subscribe form -->
+<!-- Second Read holding page · v5 · 2026-04-24 · form moved above lead for above-fold visibility -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Second Read</title>
@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/public-sans@5.0.18/500.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/public-sans@5.0.18/600.css">
 
-<!-- Beehiiv embed script — powers the subscribe form iframe -->
+<!-- Beehiiv embed script -->
 <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
 
 <style>
@@ -113,7 +113,23 @@
     color: var(--accent);
     border-left: 3px solid var(--accent);
     padding-left: 18px;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
+  }
+
+  /* Form wrapper now sits BETWEEN the pull quote and the lead paragraph,
+     putting it within the first mobile viewport (above the fold).
+     The thin rule below the form acts as a separator before the supporting
+     lead paragraph. */
+  .form-wrapper {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .form-wrapper .beehiiv-embed {
+    width: 100% !important;
+    max-width: 345px !important;
+    height: 352px !important;
+    display: block;
   }
 
   .lead {
@@ -121,23 +137,6 @@
     font-size: 18px;
     line-height: 1.6;
     color: var(--ink);
-    margin-bottom: 24px;
-  }
-
-  /* Form wrapper — provides the thin rule separator from the lead paragraph
-     above, and a responsive container that lets Beehiiv's iframe resize
-     cleanly on mobile while preserving its height for the success state */
-  .form-wrapper {
-    padding-top: 20px;
-    border-top: 0.5px solid var(--rule);
-  }
-  .form-wrapper .beehiiv-embed {
-    width: 100% !important;
-    max-width: 345px !important;
-    /* Height retained at 336px to accommodate the Beehiiv form's success
-       state after submission. Resist the temptation to shrink this. */
-    height: 352px !important;
-    display: block;
   }
 
   footer {
@@ -170,10 +169,10 @@
   @media (max-width: 640px) {
     header { padding: 20px 24px; }
     main { padding: 32px 24px; }
-    h1 { font-size: 40px; }
-    .pull-quote { font-size: 19px; }
-    .lead { font-size: 17px; margin-bottom: 24px; }
-    .form-wrapper { padding-top: 20px; }
+    h1 { font-size: 40px; margin-bottom: 24px; }
+    .pull-quote { font-size: 19px; margin-bottom: 20px; }
+    .form-wrapper { margin-bottom: 24px; padding-bottom: 20px; }
+    .lead { font-size: 17px; }
     footer { padding: 24px; }
   }
 
@@ -207,13 +206,13 @@
       Your work comes first. We are building the place it deserves.
     </blockquote>
 
-    <p class="lead">
-      Second Read brings every part of the serious writer's publishing pipeline into one platform. Writers deserve better tools than spreadsheets and disorganised bookmarks, and we will make sure they get them. With Second Read, the writer can find opportunities, track submissions, hone their craft, and meet other passionate writers. Coming Soon.
-    </p>
-
     <div class="form-wrapper">
       <iframe src="https://subscribe-forms.beehiiv.com/24250603-4578-47a9-a8bd-d6233812911f" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" title="Subscribe to Second Read" style="margin: 0; border-radius: 0; background-color: transparent; box-shadow: 0 0 #0000;"></iframe>
     </div>
+
+    <p class="lead">
+      Second Read brings every part of the serious writer's publishing pipeline into one platform. Writers deserve better tools than spreadsheets and disorganised bookmarks, and we will make sure they get them. With Second Read, the writer can find opportunities, track their submissions, hone their craft, and meet other writers passionate about their work. Coming Soon.
+    </p>
 
   </div>
 </main>
